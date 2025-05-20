@@ -17,4 +17,9 @@ Route::prefix('leads')->group(function () {
     Route::patch('/{lead}/status', [LeadController::class, 'updateStatus']);
 });
 
-Route::get('/managers', [ManagerController::class, 'index']);
+Route::prefix('managers')->group(function() {
+    Route::get('/', [ManagerController::class, 'index']);
+    Route::post('/', [ManagerController::class, 'store']);
+    Route::patch('/{manager}', [ManagerController::class, 'update']);
+});
+
