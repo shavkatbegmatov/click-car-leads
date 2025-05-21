@@ -32,7 +32,7 @@ class LeadController extends Controller
     public function assign(Request $request, Lead $lead): \Illuminate\Http\JsonResponse
     {
         $data = $request->validate([
-            'manager_id' => 'required|exists:manager_id',
+            'manager_id' => 'required|exists:managers,id',
         ]);
 
         if ($lead->status !== 'new') {
