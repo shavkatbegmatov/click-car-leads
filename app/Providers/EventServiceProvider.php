@@ -10,8 +10,10 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 
 class EventServiceProvider extends ServiceProvider
 {
-    protected $listen = [
-        NewLeadCreated::class => [SendNewNotification::class],
-        LeadStatusChanged::class => [SendStatusChangeNotification::class],
-    ];
+//    protected static bool $shouldDiscoverEvents = false;
+
+//    protected $listen = [
+//        NewLeadCreated::class => [SendNewNotification::class],
+//        LeadStatusChanged::class => [SendStatusChangeNotification::class],
+//    ];
 }
