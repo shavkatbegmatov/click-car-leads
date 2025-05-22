@@ -32,10 +32,6 @@ class Lead extends Model
         'manager_id',
     ];
 
-//    protected $dispatchesEvents = [
-//        'created' => NewLeadCreated::class,
-//    ];
-
     public function manager(): BelongsTo
     {
         return $this->belongsTo(Manager::class);
