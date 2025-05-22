@@ -24,7 +24,7 @@ class SendNewNotification
                 " *Car Model*: {$lead->car_model}\n".
                 " *Created At*: {$lead->created_at->format('Y-m-d H:i:s')}";
 
-        Http::post("https://api.telegram.org/bot".config('services.telegram.token').'/sendMessage',[
+        Http::post("https://api.telegram.org/bot".config('services.telegram.bot_token').'/sendMessage',[
             'chat_id' => config('services.telegram.chat_id'),
             'text' => $text,
             'parse_mode' => 'Markdown', // 'HTML',
