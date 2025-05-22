@@ -20,10 +20,10 @@ class SendStatusChangeNotification implements ShouldQueue
         $manager   = optional($lead->manager)->name ?? '-';
 
         $text = " *Lead Status Changed*\n".
-                " *ID*: _{$lead->id}_\n".
-                " *From*: _{$oldStatus}_\n".
-                " *To*: _{$newStatus}_\n".
-                " *Manager*: _{$manager}_";
+                " *ID*: {$lead->id}\n".
+                " *From*: {$oldStatus}\n".
+                " *To*: {$newStatus}\n".
+                " *Manager*: {$manager}";
 
         $response = Http::post(
             "https://api.telegram.org/bot".config('services.telegram.bot_token')."/sendMessage",

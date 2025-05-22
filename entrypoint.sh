@@ -22,4 +22,5 @@ php artisan migrate --force || true
 
 php artisan cache:clear
 
+php artisan queue:work --sleep=3 --tries=3 &
 php artisan serve --host=0.0.0.0 --port=8000
