@@ -14,6 +14,7 @@ class SendNewNotification implements ShouldQueue
     public function handle(NewLeadCreated $event): void
     {
         $lead = $event->lead;
+
         $text = " *New Lead*: {$lead->name}\n".
                 " *Phone Number*: {$lead->phone}\n".
                 " *Car Model*: {$lead->car_model}\n".

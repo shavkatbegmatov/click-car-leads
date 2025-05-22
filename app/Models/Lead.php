@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Events\NewLeadCreated;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -30,7 +32,11 @@ class Lead extends Model
         'manager_id',
     ];
 
-    public function manager(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+//    protected $dispatchesEvents = [
+//        'created' => NewLeadCreated::class,
+//    ];
+
+    public function manager(): BelongsTo
     {
         return $this->belongsTo(Manager::class);
     }
