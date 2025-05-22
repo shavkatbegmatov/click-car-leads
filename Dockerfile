@@ -13,13 +13,9 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-RUN chmod -R 775 storage bootstrap/cache \
- && php artisan config:clear \
- && php artisan route:clear \
- && php artisan view:clear \
- && php artisan key:generate \
- && php artisan storage:link \
- && php artisan migrate --force
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 8000
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
