@@ -12,8 +12,8 @@ class EventServiceProvider extends ServiceProvider
 {
 //    protected static bool $shouldDiscoverEvents = false;
 
-//    protected $listen = [
-//        NewLeadCreated::class => [SendNewNotification::class],
-//        LeadStatusChanged::class => [SendStatusChangeNotification::class],
-//    ];
+    protected $listen = [
+        NewLeadCreated::class => [SendNewNotification::class],
+        LeadStatusChanged::class => [SendStatusChangeNotification::class],
+    ];
 }
